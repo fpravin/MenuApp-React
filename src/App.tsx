@@ -1,27 +1,40 @@
-import { useState } from "react";
+import React from "react";
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
+
 import "./App.css";
-import MenuContent from "./Components/menu/MenuContent";
-import AdminContent from "./Components/admin/AdminContent";
-import { BrowserRouter as Router, Route } from "react-router-dom";
-import Home from "./Home";
+
+const HeaderLayout = React.lazy(() => import('./components/layouts/HeaderLayout'))
+const MenuLayout = React.lazy(() => import('./components/layouts/MenuLayout'))
 
 function App() {
-  // const [count, setCount] = useState(0);
+  const router = createBrowserRouter([
+    {
+      element: <React.Suspense fallback={<>...</>}> <HeaderLayout /> </React.Suspense>,
+      children: [
+        {
+          path: "/",
+          element: <div>Hello</div>,
+        },
+        {
+          path: '/foo',
+          element: <div>foo</div>,
+        },
+        {
+          path: '/bar',
+          element: <div>bar</div>,
+        }
+      ],
+    },
+    {
+      element: <React.Suspense fallback={<>...</>}> <MenuLayout /> </React.Suspense>,
+      path: 'menu'
+    }
+  ]);
 
   return (
-    <Router>
-      <div className="App">
-        <Home />
-      </div>
-      <div className="App">
-        <Route path="/menu">
-          <MenuContent />
-        </Route>
-        <Route path="/admin">
-          <AdminContent />
-        </Route>
-      </div>
-    </Router>
+    <div>
+      <RouterProvider router={router} />
+    </div>
   );
 }
 
