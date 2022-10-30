@@ -3,32 +3,44 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 
 import "./App.css";
 
-const HeaderLayout = React.lazy(() => import('./components/layouts/HeaderLayout'))
-const MenuLayout = React.lazy(() => import('./components/layouts/MenuLayout'))
+const HeaderLayout = React.lazy(
+  () => import("./components/layouts/HeaderLayout"),
+);
+const MenuLayout = React.lazy(() => import("./components/layouts/MenuLayout"));
 
 function App() {
   const router = createBrowserRouter([
     {
-      element: <React.Suspense fallback={<>...</>}> <HeaderLayout /> </React.Suspense>,
+      element: (
+        <React.Suspense fallback={<>...</>}>
+          {" "}
+          <HeaderLayout />{" "}
+        </React.Suspense>
+      ),
       children: [
         {
           path: "/",
           element: <div>Hello</div>,
         },
         {
-          path: '/foo',
+          path: "/foo",
           element: <div>foo</div>,
         },
         {
-          path: '/bar',
+          path: "/bar",
           element: <div>bar</div>,
-        }
+        },
       ],
     },
     {
-      element: <React.Suspense fallback={<>...</>}> <MenuLayout /> </React.Suspense>,
-      path: 'menu'
-    }
+      element: (
+        <React.Suspense fallback={<>...</>}>
+          {" "}
+          <MenuLayout />{" "}
+        </React.Suspense>
+      ),
+      path: "menu",
+    },
   ]);
 
   return (

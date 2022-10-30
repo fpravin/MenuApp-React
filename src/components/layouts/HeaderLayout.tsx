@@ -1,13 +1,15 @@
 import { Outlet } from "react-router-dom";
-import { Navbar } from "../navBar/NavBar";
+import Navbar from "../navBar/NavBar";
 
-const HeaderLayout = () => (
+function HeaderLayout() {
+  return (
     <>
-        <header>
-            <Navbar />
-        </header>
-        <Outlet />
+      <header>
+        <Navbar />
+      </header>
+      <Outlet />
     </>
-);
+  );
+}
 
 export default HeaderLayout;
