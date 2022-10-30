@@ -16,10 +16,10 @@
 
 thead {
   background-color: rgb(47, 119, 63);
-	color: white;
-	font-size: 0.875rem;
-	text-transform: uppercase;
-	letter-spacing: 2%;
+  color: white;
+  font-size: 0.875rem;
+  text-transform: uppercase;
+  letter-spacing: 2%;
 }
 
 th,
@@ -28,17 +28,17 @@ td {
   padding: 10px;
 }
 
-.main-table{
-display: flex;
-justify-content: center;
+.main-table {
+  display: flex;
+  justify-content: center;
 }
 
-.Home-Title{
+.Home-Title {
   font-size: 30px;
   font-weight: bold;
 }
 
-.logo{
+.logo {
   width: 200px;
   /* height: 100%; */
 }

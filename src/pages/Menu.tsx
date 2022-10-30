@@ -1,9 +1,5 @@
-import { Outlet } from "react-router-dom";
-
-const MenuLayout = () => (
-    <>
-        MENU HERE
-    </>
-);
+function MenuLayout() {
+  return <>MENU HERE</>;
+}
 
 export default MenuLayout;
